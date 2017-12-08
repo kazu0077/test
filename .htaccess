@@ -1,0 +1,58 @@
+suPHP_ConfigPath /home/thinknetpro/kaatsu-cosmos.com/xserver_php/
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+RewriteCond %{HTTP:Accept-Encoding} gzip
+RewriteCond %{REQUEST_FILENAME}\.gz -s
+RewriteRule .+ %{REQUEST_URI}.gz
+AddEncoding x-gzip .gz
+<files *.css.gz>
+    AddType text/css .gz
+</files>
+<files *.js.gz>
+    AddType text/javascript; .gz
+</files>
+</IfModule>
+#MIMEタイプ
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-ttf .ttf
+AddType application/x-font-opentype .otf
+AddType application/x-font-woff .woff
+AddType image/svg+xml .svg
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/gif "access plus 1 week"
+ExpiresByType image/jpg "access plus 1 week"
+ExpiresByType image/jpeg "access plus 1 week"
+ExpiresByType image/png "access plus 1 week"
+ExpiresByType image/x-icon "access plus 1 week"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType text/javascript "access plus 1 week"
+ExpiresByType application/x-javascript "access plus 1 week"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 week"
+ExpiresByType application/x-font-ttf "access plus 1 week"
+ExpiresByType application/x-font-opentype "access plus 1 week"
+ExpiresByType application/x-font-woff "access plus 1 week"
+ExpiresByType image/svg+xml "access plus 1 week"
+</IfModule> 
+# END WordPress
+AddHandler fcgid-script .php .phps
+FCGIWrapper "/home/thinknetpro/kaatsu-cosmos.com/xserver_php/php-cgi" .php
+FCGIWrapper "/home/thinknetpro/kaatsu-cosmos.com/xserver_php/php-cgi" .phps
+
+# ▽リダイレクトの設定(メンテナンス用)ここから▽
+# ErrorDocument 503 http://www.kaatsu-cosmos.com/503/index.php
+
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteRule ^503/ - [L]
+# RewriteCond %{REQUEST_URI} !=http://www.kaatsu-cosmos.com/503/index.php
+# RewriteCond %{REMOTE_ADDR} !=202.215.22.87
+# RewriteRule ^.*$ - [R=503,L]
+# </IfModule>
+# △リダイレクトの設定(メンテナンス用)ここまで△
