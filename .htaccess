@@ -45,7 +45,7 @@ AddHandler fcgid-script .php .phps
 FCGIWrapper "/home/thinknetpro/kaatsu-cosmos.com/xserver_php/php-cgi" .php
 FCGIWrapper "/home/thinknetpro/kaatsu-cosmos.com/xserver_php/php-cgi" .phps
 
-# ▽リダイレクトの設定(メンテナンス用)ここから▽
+# ▽メンテナンスの設定(メンテナンス用)ここから▽
 # ErrorDocument 503 http://www.kaatsu-cosmos.com/503/index.php
 
 # <IfModule mod_rewrite.c>
@@ -55,4 +55,4 @@ FCGIWrapper "/home/thinknetpro/kaatsu-cosmos.com/xserver_php/php-cgi" .phps
 # RewriteCond %{REMOTE_ADDR} !=202.215.22.87
 # RewriteRule ^.*$ - [R=503,L]
 # </IfModule>
-# △リダイレクトの設定(メンテナンス用)ここまで△
+# △メンテナンスの設定(メンテナンス用)ここまで△
